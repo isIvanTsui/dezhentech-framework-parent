@@ -6,7 +6,7 @@
 
     <groupId>com.dezhentech</groupId>
     <artifactId>dezhentech-dependencies</artifactId>
-    <version>1.0.2022.10</version>
+    <version>1.0.2022.10</version>   <!--这里的版本尽量跟dezhentech-framework-parent的版本一致-->
     <packaging>pom</packaging>
 
     <name>dezhentech-dependencies</name>
@@ -78,6 +78,48 @@
             <dependency>
                 <groupId>com.dezhentech</groupId>
                 <artifactId>dezhentech-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--消息队列项目-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-starter-mq</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--es项目-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-starter-es</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--log项目-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-starter-log</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--message项目-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-starter-message</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--mybatisplus项目-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-starter-mybatisplus</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--swagger项目-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-starter-swagger</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

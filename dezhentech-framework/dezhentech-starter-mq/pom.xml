@@ -9,13 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dezhentech-rabbitmq</artifactId>
+    <artifactId>dezhentech-starter-mq</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>com.dezhentech</groupId>
-            <artifactId>dezhentech-common</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>

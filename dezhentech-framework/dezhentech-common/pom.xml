@@ -10,6 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>dezhentech-common</artifactId>
+    <packaging>pom</packaging>
+    <description>公共方法模块</description>
+    <modules>
+        <module>dezhentech-common-cache</module>
+        <module>dezhentech-common-mq</module>
+        <module>dezhentech-common-security</module>
+        <module>dezhentech-common-core</module>
+    </modules>
 
     <dependencies>
         <dependency>
