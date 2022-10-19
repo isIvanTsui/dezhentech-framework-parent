@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.dezhentech.framework.log.config.AutoLogConfiguration,\
+com.dezhentech.framework.log.aspect.AutoLogAspect

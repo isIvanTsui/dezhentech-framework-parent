@@ -17,36 +17,32 @@
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>2.7.4</spring-boot.version>
+
+        <!--核心依赖-->
+        <spring-boot.version>2.4.2</spring-boot.version>
         <spring-cloud.version>2021.0.2</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+
+        <!--分离出这两个东西，是为了能够在 spring cloud alibaba不更新的时候，及时更新-->
+        <seata.version>1.4.2</seata.version>
+        <nacos.version>2.0.4</nacos.version>
+
+        <redisson.version>3.17.1</redisson.version>
         <druid.version>1.2.9</druid.version>
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
         <dynamic-ds.version>3.5.1</dynamic-ds.version>
         <pagehelper.boot.version>1.4.2</pagehelper.boot.version>
-        <redisson.version>3.17.1</redisson.version>
+        <p6spy.version>3.9.1</p6spy.version>
         <hutool.version>5.8.0</hutool.version>
+        <mapstruct.version>1.4.2.Final</mapstruct.version>
         <easypoi.version>4.4.0</easypoi.version>
         <spring-boot-admin.version>2.6.7</spring-boot-admin.version>
         <guava.version>30.1.1-jre</guava.version>
-        <mapstruct.version>1.4.2.Final</mapstruct.version>
-        <lombok.version>1.18.24</lombok.version>
     </properties>
-
-    <dependencies>
-
-    </dependencies>
 
     <dependencyManagement>
         <dependencies>
-            <!-- SpringCloud 微服务 -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
+            <!--核心依赖-->
             <!-- SpringBoot 依赖配置 -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -55,11 +51,79 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- SpringCloud 微服务 -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--spring cloud alibaba-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--Alibaba Nacos 配置-->
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-client</artifactId>
+                <version>${nacos.version}</version>
+            </dependency>
+            <!--分布式事务seata-->
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-spring-boot-starter</artifactId>
+                <version>${seata.version}</version>
+            </dependency>
+
+            <!--次要依赖-->
+            <!--Redisson-->
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
+            </dependency>
+
+            <!--MyBatisPlus-->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <!-- Dynamic DataSource多数据源 -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>${dynamic-ds.version}</version>
+            </dependency>
+            <!-- Pagehelper 分页插件 -->
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper.boot.version}</version>
+            </dependency>
+            <!-- druid 数据库连接池 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!-- sql性能分析插件 -->
+            <dependency>
+                <groupId>p6spy</groupId>
+                <artifactId>p6spy</artifactId>
+                <version>${p6spy.version}</version>
+            </dependency>
+
 
             <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>7.8.0</version>
             </dependency>
 
             <dependency>
@@ -74,52 +138,69 @@
                 <version>${hutool.version}</version>
             </dependency>
 
-            <!--公共组件项目-->
+
+            <!--基础框架里的starter项目依赖-->
             <dependency>
                 <groupId>com.dezhentech</groupId>
-                <artifactId>dezhentech-common</artifactId>
+                <artifactId>dezhentech-starter-redis</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <!--消息队列项目-->
             <dependency>
                 <groupId>com.dezhentech</groupId>
                 <artifactId>dezhentech-starter-mq</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <!--es项目-->
             <dependency>
                 <groupId>com.dezhentech</groupId>
                 <artifactId>dezhentech-starter-es</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <!--log项目-->
             <dependency>
                 <groupId>com.dezhentech</groupId>
                 <artifactId>dezhentech-starter-log</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <!--message项目-->
             <dependency>
                 <groupId>com.dezhentech</groupId>
                 <artifactId>dezhentech-starter-message</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <!--mybatisplus项目-->
             <dependency>
                 <groupId>com.dezhentech</groupId>
                 <artifactId>dezhentech-starter-mybatisplus</artifactId>
                 <version>${project.version}</version>
             </dependency>
-
             <!--swagger项目-->
             <dependency>
                 <groupId>com.dezhentech</groupId>
                 <artifactId>dezhentech-starter-swagger</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!--common项目-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-common-cache</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-common-mq</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-common-security</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

@@ -12,6 +12,7 @@
     <artifactId>dezhentech-common</artifactId>
     <packaging>pom</packaging>
     <description>公共方法模块</description>
+
     <modules>
         <module>dezhentech-common-cache</module>
         <module>dezhentech-common-mq</module>
@@ -19,20 +20,4 @@
         <module>dezhentech-common-core</module>
     </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-        </dependency>
-    </dependencies>
 </project>

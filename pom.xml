@@ -14,12 +14,14 @@
     </modules>
 
     <properties>
-        <reversion>1.0.2022.10</reversion>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!--把 dezhentech-dependencies 的版本写到这里来了-->
+        <reversion>1.0.2022.10</reversion>
     </properties>
 
     <dependencyManagement>
