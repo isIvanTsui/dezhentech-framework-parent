@@ -27,7 +27,6 @@ public class RedisRepository {
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 
-
     /**
      * 获取链接工厂
      */

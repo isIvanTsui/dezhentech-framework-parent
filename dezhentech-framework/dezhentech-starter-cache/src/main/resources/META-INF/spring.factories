@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.dezhentech.framework.cache.ehcache.config.EhcacheConfig,\
+com.dezhentech.framework.cache.ehcache.utils.EhcacheUtil,\
+com.dezhentech.framework.cache.redis.util.RedisUtil

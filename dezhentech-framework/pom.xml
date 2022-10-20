@@ -19,6 +19,7 @@
         <module>dezhentech-starter-swagger</module>
         <module>dezhentech-starter-es</module>
         <module>dezhentech-starter-mq</module>
+        <module>dezhentech-starter-cache</module>
     </modules>
     <artifactId>dezhentech-framework</artifactId>
 

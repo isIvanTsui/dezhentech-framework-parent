@@ -64,7 +64,7 @@ public class AutoLogAspect {
     }
 
     /**
-     * 构建审计对象
+     * 构建Log信息
      */
     private AutoLogInfo getAudit(AutoLog autoLog, JoinPoint joinPoint) {
         AutoLogInfo autoLogInfo = new AutoLogInfo();
