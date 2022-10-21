@@ -1,13 +1,9 @@
-package com.dezhentech.framework.cache.ehcache.utils;
+package com.dezhentech.framework.cache.service.impl;
 
-import com.dezhentech.framework.cache.api.DzCacheUtil;
-import com.dezhentech.framework.cache.ehcache.config.EhcacheConfig;
-import lombok.extern.slf4j.Slf4j;
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.Element;
+import com.dezhentech.framework.cache.service.CacheService;
+import com.dezhentech.framework.redis.dao.RedisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.serializer.RedisSerializer;
@@ -17,115 +13,106 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-@Slf4j
-@ConditionalOnBean(EhcacheConfig.class)
-public class EhcacheUtil implements DzCacheUtil {
+/**
+ * @description: Redis缓存Service
+ * @title: com.dezhentech.framework.cache.redis.util.RedisUtil
+ * @author: yfcui@dezhentech.com
+ * @create: 2022/10/20 05:07:16
+ * @version: 1.0.0
+ **/
+@ConditionalOnProperty(prefix = "dezhen.cache", name = "type", havingValue = "redis")
+public class RedisCacheServiceImpl implements CacheService {
     @Autowired
-    @Qualifier("dzEhcache")
-    private Cache cache;
-
+    private RedisRepository redisRepository;
 
     @Override
     public void setExpire(byte[] key, byte[] value, long time) {
-
+        redisRepository.setExpire(key, value, time);
     }
 
     @Override
     public void setExpire(String key, Object value, long time, TimeUnit timeUnit) {
-
+        redisRepository.setExpire(key, value, time, timeUnit);
     }
 
     @Override
     public long getExpire(String key, TimeUnit timeUnit) {
-        return 0;
+        return redisRepository.getExpire(key, timeUnit);
     }
 
     @Override
     public void setExpire(String key, Object value, long time) {
-
+        redisRepository.setExpire(key, value, time);
     }
 
     @Override
     public void setExpire(String key, Object value, long time, TimeUnit timeUnit, RedisSerializer<Object> valueSerializer) {
-
+        redisRepository.setExpire(key, value, time, timeUnit, valueSerializer);
     }
 
     @Override
     public void setExpire(String[] keys, Object[] values, long time) {
-
+        redisRepository.setExpire(keys, values, time);
     }
 
     @Override
     public void set(String[] keys, Object[] values) {
-
+        redisRepository.set(keys, values);
     }
 
     @Override
     public void set(String key, Object value) {
-        try {
-            Element element = new Element(key, value);
-            cache.put(element);
-        } catch (Exception e) {
-            e.printStackTrace();
-            log.error("添加缓存失败：{}", e.getMessage());
-        }
+        redisRepository.set(key, value);
     }
 
     @Override
     public Set<String> keys(String keyPatten) {
-        return null;
+        return redisRepository.keys(keyPatten);
     }
 
     @Override
     public byte[] get(byte[] key) {
-        return new byte[0];
+        return redisRepository.get(key);
     }
 
     @Override
     public Object get(String key) {
-        try {
-            Element element = cache.get(key);
-            return element == null ? null : element.getObjectValue();
-        } catch (Exception e) {
-            e.printStackTrace();
-            log.error("获取缓存数据失败：{}", e.getMessage());
-            return null;
-        }
+        return redisRepository.get(key);
     }
 
     @Override
     public Object get(String key, RedisSerializer<Object> valueSerializer) {
-        return null;
+        return redisRepository.get(key, valueSerializer);
     }
 
     @Override
     public HashOperations<String, String, Object> opsForHash() {
-        return null;
+        return redisRepository.opsForHash();
     }
 
     @Override
     public void putHashValue(String key, String hashKey, Object hashValue) {
-
+        redisRepository.putHashValue(key, hashKey, hashValue);
     }
 
     @Override
     public Object getHashValues(String key, String hashKey) {
-        return null;
+        return redisRepository.getHashValues(key, hashKey);
     }
 
     @Override
     public void delHashValues(String key, Object... hashKeys) {
-
+        redisRepository.delHashValues(key, hashKeys);
     }
 
     @Override
     public Map<String, Object> getHashValue(String key) {
-        return null;
+        return redisRepository.getHashValue(key);
     }
 
     @Override
     public void putHashValues(String key, Map<String, Object> map) {
-
+        redisRepository.putHashValues(key, map);
     }
 
     @Override

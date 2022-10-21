@@ -1,8 +1,6 @@
-package com.dezhentech.framework.cache.redis.util;
+package com.dezhentech.framework.cache.service.impl;
 
-import com.dezhentech.framework.cache.api.DzCacheUtil;
-import com.dezhentech.framework.redis.dao.RedisRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.dezhentech.framework.cache.service.CacheService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.ListOperations;
@@ -14,17 +12,14 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @description: Redis实体类
- * @title: com.dezhentech.framework.cache.redis.util.RedisUtil
- * @author: yfcui@dezhentech.com
- * @create: 2022/10/20 05:07:16
+ * @description: jetcache缓存Service
+ * @title: com.dezhentech.framework.cache.service.impl.JetcacheServiceImpl
+ * @author: yingfan.cui@dezhentech.com
+ * @create: 2022/10/21 09:29:58
  * @version: 1.0.0
  **/
-@ConditionalOnProperty(prefix = "dezhen.cache", name = "type", havingValue = "redis")
-public class RedisUtil implements DzCacheUtil {
-    @Autowired
-    private RedisRepository redisRepository;
-
+@ConditionalOnProperty(prefix = "dezhen.cache", name = "type", havingValue = "jetcache")
+public class JetcacheServiceImpl implements CacheService {
     @Override
     public void setExpire(byte[] key, byte[] value, long time) {
 
@@ -62,7 +57,7 @@ public class RedisUtil implements DzCacheUtil {
 
     @Override
     public void set(String key, Object value) {
-        redisRepository.set(key, value);
+
     }
 
     @Override
@@ -77,7 +72,7 @@ public class RedisUtil implements DzCacheUtil {
 
     @Override
     public Object get(String key) {
-        return redisRepository.get(key);
+        return null;
     }
 
     @Override

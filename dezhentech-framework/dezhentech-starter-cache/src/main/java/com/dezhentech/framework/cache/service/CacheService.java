@@ -1,4 +1,4 @@
-package com.dezhentech.framework.cache.api;
+package com.dezhentech.framework.cache.service;
 
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.ListOperations;
@@ -10,12 +10,13 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 缓存中心统一工具
- *
- * @author yfcui
- * @date 2022/10/20
- */
-public interface DzCacheUtil {
+ * @description: 缓存Service
+ * @title: com.dezhentech.framework.cache.service.CacheService
+ * @author: yingfan.cui@dezhentech.com
+ * @create: 2022/10/21 09:21:04
+ * @version: 1.0.0
+ **/
+public interface CacheService {
     /**
      * 添加到带有 过期时间的  缓存
      *
