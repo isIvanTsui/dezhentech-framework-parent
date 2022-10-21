@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.dezhentech.framework.mq.service.impl.KafkaSendServiceImpl,\
+com.dezhentech.framework.mq.service.impl.RocketSendServiceImpl,\
+com.dezhentech.framework.mq.service.impl.RocketSendServiceImpl
