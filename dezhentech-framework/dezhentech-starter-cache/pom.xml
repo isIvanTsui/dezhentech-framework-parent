@@ -18,6 +18,10 @@
             <artifactId>ehcache</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.alicp.jetcache</groupId>
+            <artifactId>jetcache-starter-redis-lettuce</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.dezhentech</groupId>
             <artifactId>dezhentech-starter-redis</artifactId>
         </dependency>

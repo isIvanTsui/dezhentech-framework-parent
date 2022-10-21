@@ -1,13 +1,7 @@
 package com.dezhentech.framework.cache.service.impl;
 
-import com.dezhentech.framework.cache.ehcache.config.EhcacheConfig;
 import com.dezhentech.framework.cache.service.CacheService;
-import lombok.extern.slf4j.Slf4j;
-import net.sf.ehcache.Cache;
-import net.sf.ehcache.Element;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.serializer.RedisSerializer;
@@ -18,20 +12,14 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @description: ehcache缓存Service
- * @title: com.dezhentech.framework.cache.service.impl.EhcacheServiceImpl
+ * @description: jetcache缓存Service
+ * @title: com.dezhentech.framework.cache.service.impl.JetcacheServiceImpl
  * @author: yingfan.cui@dezhentech.com
- * @create: 2022/10/21 09:30:02
+ * @create: 2022/10/21 09:29:58
  * @version: 1.0.0
  **/
-@Slf4j
-@ConditionalOnBean(EhcacheConfig.class)
-public class EhcacheServiceImpl implements CacheService {
-    @Autowired
-    @Qualifier("dzEhcache")
-    private Cache cache;
-
-
+@ConditionalOnProperty(prefix = "dezhen.cache", name = "type", havingValue = "jetcache")
+public class JetCacheServiceImpl implements CacheService {
     @Override
     public void setExpire(byte[] key, byte[] value, long time) {
 
@@ -69,13 +57,7 @@ public class EhcacheServiceImpl implements CacheService {
 
     @Override
     public void set(String key, Object value) {
-        try {
-            Element element = new Element(key, value);
-            cache.put(element);
-        } catch (Exception e) {
-            e.printStackTrace();
-            log.error("添加缓存失败：{}", e.getMessage());
-        }
+
     }
 
     @Override
@@ -90,14 +72,7 @@ public class EhcacheServiceImpl implements CacheService {
 
     @Override
     public Object get(String key) {
-        try {
-            Element element = cache.get(key);
-            return element == null ? null : element.getObjectValue();
-        } catch (Exception e) {
-            e.printStackTrace();
-            log.error("获取缓存数据失败：{}", e.getMessage());
-            return null;
-        }
+        return null;
     }
 
     @Override

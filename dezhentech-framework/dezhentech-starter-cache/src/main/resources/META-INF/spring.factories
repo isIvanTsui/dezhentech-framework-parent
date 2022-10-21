@@ -1,5 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.dezhentech.framework.cache.ehcache.config.EhcacheConfig,\
-com.dezhentech.framework.cache.service.impl.EhcacheServiceImpl,\
+com.dezhentech.framework.cache.service.impl.EhCaheServiceImpl,\
 com.dezhentech.framework.cache.service.impl.RedisCacheServiceImpl,\
-com.dezhentech.framework.cache.service.impl.JetcacheServiceImpl
+com.dezhentech.framework.cache.service.impl.JetCacheServiceImpl
