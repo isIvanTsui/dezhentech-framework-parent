@@ -1,4 +1,4 @@
-package com.dezhentech.common.dto;
+package com.dezhentech.framework.common.dto;
 
 import lombok.Data;
 
@@ -20,16 +20,6 @@ public class BaseDTO implements Serializable {
     private static final Integer PAGE_SIZE = 10;
 
     /**
-     * 创建时间
-     */
-    protected Date createTime;
-
-    /**
-     * 更新时间
-     */
-    protected Date updateTime;
-
-    /**
      * 当前页
      */
     protected Integer pageNum = PAGE_NO;
@@ -39,4 +29,14 @@ public class BaseDTO implements Serializable {
      * 每页显示条数
      */
     protected Integer pageSize = PAGE_SIZE;
+
+    /**
+     * 创建时间
+     */
+    protected Date createTime;
+
+    /**
+     * 更新时间
+     */
+    protected Date updateTime;
 }

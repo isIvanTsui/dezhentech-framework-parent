@@ -10,7 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
     <modules>
-        <module>dezhentech-common</module>
         <module>dezhentech-starter-redis</module>
         <module>dezhentech-starter-mybatisplus</module>
         <module>dezhentech-starter-log</module>
@@ -20,6 +19,8 @@
         <module>dezhentech-starter-es</module>
         <module>dezhentech-starter-mq</module>
         <module>dezhentech-starter-cache</module>
+        <module>dezhentech-starter-web</module>
+        <module>dezhentech-common</module>
     </modules>
     <artifactId>dezhentech-framework</artifactId>
 

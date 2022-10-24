@@ -162,6 +162,12 @@
 
 
             <!--基础框架里的starter项目依赖-->
+            <!--Web项目-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-starter-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!--Redis项目-->
             <dependency>
                 <groupId>com.dezhentech</groupId>
@@ -214,22 +220,7 @@
             <!--common项目-->
             <dependency>
                 <groupId>com.dezhentech</groupId>
-                <artifactId>dezhentech-common-core</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.dezhentech</groupId>
-                <artifactId>dezhentech-common-cache</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.dezhentech</groupId>
-                <artifactId>dezhentech-common-mq</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.dezhentech</groupId>
-                <artifactId>dezhentech-common-security</artifactId>
+                <artifactId>dezhentech-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>

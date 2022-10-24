@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.dezhentech.framework.web.handler.GlobalExceptionHandler
