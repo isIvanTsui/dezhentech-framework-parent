@@ -40,6 +40,7 @@
         <guava.version>30.1.1-jre</guava.version>
         <ehcache.version>2.10.2</ehcache.version>
         <jetcache.version>2.7.0</jetcache.version>
+        <rocketmq.version>2.2.2</rocketmq.version>
     </properties>
 
     <dependencyManagement>
@@ -119,6 +120,13 @@
                 <groupId>p6spy</groupId>
                 <artifactId>p6spy</artifactId>
                 <version>${p6spy.version}</version>
+            </dependency>
+
+            <!--RocketMq-->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>${rocketmq.version}</version>
             </dependency>
 
 

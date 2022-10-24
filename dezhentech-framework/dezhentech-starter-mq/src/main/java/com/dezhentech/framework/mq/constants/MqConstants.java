@@ -8,7 +8,7 @@ package com.dezhentech.framework.mq.constants;
  * @version: 1.0.0
  **/
 public class MqConstants {
-    public static final String RABBIT = "rabbit";
-    public static final String ROCKET = "rocket";
+    public static final String RABBIT = "rabbitmq";
+    public static final String ROCKET = "rocketmq";
     public static final String KAFKA = "kafka";
 }
