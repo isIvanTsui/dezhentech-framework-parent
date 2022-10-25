@@ -41,6 +41,9 @@
         <ehcache.version>2.10.2</ehcache.version>
         <jetcache.version>2.7.0</jetcache.version>
         <rocketmq.version>2.2.2</rocketmq.version>
+        <es.version>7.8.0</es.version>
+        <logstash.version>7.0.1</logstash.version>
+        <knife4j.version>3.0.3</knife4j.version>
     </properties>
 
     <dependencyManagement>
@@ -122,6 +125,13 @@
                 <version>${p6spy.version}</version>
             </dependency>
 
+            <!--knife4j接口文档-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+
             <!--RocketMq-->
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>
@@ -129,11 +139,25 @@
                 <version>${rocketmq.version}</version>
             </dependency>
 
+            <!--elasticsearch-->
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${es.version}</version>
+            </dependency>
 
+            <!-- elasticsearch-rest-high-level-client -->
             <dependency>
                 <groupId>org.elasticsearch.client</groupId>
                 <artifactId>elasticsearch-rest-high-level-client</artifactId>
-                <version>7.8.0</version>
+                <version>${es.version}</version>
+            </dependency>
+
+            <!--logstash-->
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logstash.version}</version>
             </dependency>
 
             <dependency>
