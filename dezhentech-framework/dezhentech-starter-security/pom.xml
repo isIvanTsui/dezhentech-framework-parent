@@ -11,5 +11,11 @@
 
     <artifactId>dezhentech-starter-security</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.dezhentech</groupId>
+            <artifactId>dezhentech-common</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
