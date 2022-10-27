@@ -1,7 +1,7 @@
 package com.dezhentech.framework.web.handler;
 
-import com.dezhentech.framework.common.exception.ServiceException;
-import com.dezhentech.framework.common.response.Result;
+import com.dezhentech.framework.common.core.exceptions.ServiceException;
+import com.dezhentech.framework.common.core.response.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.http.converter.HttpMessageNotReadableException;

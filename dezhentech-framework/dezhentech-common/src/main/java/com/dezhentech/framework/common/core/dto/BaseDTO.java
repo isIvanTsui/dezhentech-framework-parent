@@ -1,4 +1,4 @@
-package com.dezhentech.framework.common.dto;
+package com.dezhentech.framework.common.core.dto;
 
 import lombok.Data;
 

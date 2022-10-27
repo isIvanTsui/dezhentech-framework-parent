@@ -1,4 +1,4 @@
-package com.dezhentech.framework.common.response;
+package com.dezhentech.framework.common.core.response;
 
 import cn.hutool.http.HttpStatus;
 import lombok.AccessLevel;

@@ -1,4 +1,4 @@
-package com.dezhentech.framework.common.exception;
+package com.dezhentech.framework.common.core.exceptions;
 
 
 import lombok.AllArgsConstructor;
