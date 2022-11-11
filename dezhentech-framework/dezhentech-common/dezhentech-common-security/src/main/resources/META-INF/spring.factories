@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.dezhentech.common.security.aspect.PreAuthorizeAspect,\
+com.dezhentech.common.security.config.WebMvcConfig,\
+com.dezhentech.common.security.service.TokenService

@@ -1,7 +1,10 @@
 package com.dezhentech.framework.web.handler;
 
-import com.dezhentech.framework.common.core.exceptions.ServiceException;
-import com.dezhentech.framework.common.core.response.Result;
+import cn.hutool.http.HttpStatus;
+import com.dezhentech.common.core.exceptions.ServiceException;
+import com.dezhentech.common.core.exceptions.auth.NotPermissionException;
+import com.dezhentech.common.core.exceptions.auth.NotRoleException;
+import com.dezhentech.common.core.response.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -96,4 +99,25 @@ public class GlobalExceptionHandler {
         return Result.error("【参数校验失败】 " + stringBuilder.toString());
 
     }
+
+    /**
+     * 权限码异常
+     */
+    @ExceptionHandler(NotPermissionException.class)
+    public Result handleNotPermissionException(NotPermissionException e, HttpServletRequest request) {
+        String requestURI = request.getRequestURI();
+        log.error("请求地址'{}',权限码校验失败'{}'", requestURI, e.getMessage());
+        return Result.error(HttpStatus.HTTP_FORBIDDEN, "没有访问权限，请联系管理员授权");
+    }
+
+    /**
+     * 角色权限异常
+     */
+    @ExceptionHandler(NotRoleException.class)
+    public Result handleNotRoleException(NotRoleException e, HttpServletRequest request) {
+        String requestURI = request.getRequestURI();
+        log.error("请求地址'{}',角色权限校验失败'{}'", requestURI, e.getMessage());
+        return Result.error(HttpStatus.HTTP_FORBIDDEN, "没有访问权限，请联系管理员授权");
+    }
+
 }

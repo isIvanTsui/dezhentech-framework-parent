@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.dezhentech.system.config.MybatisPlusConfig,\
+com.dezhentech.system.controller.SysUserController,\
+com.dezhentech.system.service.impl.SysUserServiceImpl

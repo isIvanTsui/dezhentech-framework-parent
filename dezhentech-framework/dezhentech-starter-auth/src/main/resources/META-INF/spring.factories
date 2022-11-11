@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.dezhentech.auth.controller.TokenController,\
+com.dezhentech.auth.service.SysLoginService,\
+com.dezhentech.auth.service.SysPasswordService

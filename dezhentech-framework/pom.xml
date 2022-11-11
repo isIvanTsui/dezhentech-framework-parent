@@ -14,14 +14,32 @@
         <module>dezhentech-starter-mybatisplus</module>
         <module>dezhentech-starter-log</module>
         <module>dezhentech-starter-message</module>
-        <module>dezhentech-starter-security</module>
         <module>dezhentech-starter-swagger</module>
         <module>dezhentech-starter-es</module>
         <module>dezhentech-starter-mq</module>
         <module>dezhentech-starter-cache</module>
         <module>dezhentech-starter-web</module>
         <module>dezhentech-common</module>
+        <module>dezhentech-starter-id</module>
+        <module>dezhentech-api</module>
+        <module>dezhentech-starter-system</module>
+        <module>dezhentech-starter-auth</module>
+        <module>dezhentech-starter-gateway</module>
+        <module>dezhentech-starter-admin</module>
     </modules>
     <artifactId>dezhentech-framework</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
 </project>

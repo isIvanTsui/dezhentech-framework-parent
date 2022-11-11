@@ -1,0 +1,77 @@
+dezhentech:
+  utils:
+    #默认字符编码
+    charset: UTF-8
+    
+    #加密
+    encryption:
+      #默认加密方式
+      algorithm: AES
+      #密钥长度，AES的key的长度：128/192/256 bits，即16/24/32 bytes；DES无限制
+      key-size: 128
+      #默认密钥，AES的key的长度应为 encryptKeySize/8 
+      key: Dezhentech.com?q=1234
+      #默认偏移
+      iv: 1234567812345678
+      #私钥
+      private-key: MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAOonz9mHnHqPtwYBjp3M2+FojtQseOfkfzePPIKRD02lfg48CiswCkzTGTlkvMeiOLTY3y6zrvsCDPshjwkPZkKiZSittpyq8XFOiFxvuo/47dX+SpZWHDF67P28FAMnhSeShR/3FR/kRmnKMrCeeJNdZeki51vTVx8N6IlGC+9bAgMBAAECgYBLwtLc4qROAXbp4hIXW4OfNHnWC4eZHBTPULB23GFzsYKOL33oyFPk1H56U+5Ct2malfrsPOX2QA0cKhkCCPIAKeSuFVoMSL7ndv/EAPul9e6ARBuDbqTu3TEcTYMwnNXgXT9Hx/tXs/vvemtdxJxhHZsFcp63SMTN/uKClqJFsQJBAPVRKVFsEPX9gMe/3KE2K2vE/1R4IzKcmi2D7QTw+xmebHrQBvid7fH/MXbIjAFMjHkkctKCrKTX+XtyxImXmHECQQD0WjhIrVrVCMyLWyYaHB6nglUmYYTwMjpMFrdO1s017FF0AlPjdop6qHxh8LF+NY/RE4Sf8JF232grhr5LI8qLAkACvmak532FEtHG6ilwkCeKLAjjC/jwzvmWerxC6uMUFUaHVR5O141awIzwFCwks5N6o2K5YgbGTTgYHl9+XnixAkEA7hPRbw5ox9RQ5x6iGyJ2w6L7L/AoRJfLsUMYy1oCi517J1r1PVTMTAJJXmvTpDKvs3ge6m7MbFPz/STF2BRBTQJBALVMOprLvEA4ohQDcQscOrHQcWmnWvLgwEaaekHR/o6QPF9Niqz/wiZpJ2Pjsan3BMohiTZZy83sqPWq1vrLRAU=
+      #公钥
+      public-key: MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDqJ8/Zh5x6j7cGAY6dzNvhaI7ULHjn5H83jzyCkQ9NpX4OPAorMApM0xk5ZLzHoji02N8us677Agz7IY8JD2ZComUorbacqvFxTohcb7qP+O3V/kqWVhwxeuz9vBQDJ4UnkoUf9xUf5EZpyjKwnniTXWXpIudb01cfDeiJRgvvWwIDAQAB
+    
+    #签名
+    sign:
+      #默认加密方式
+      algorithm: SM2
+      #私钥
+      private-key: MIGTAgEAMBMGByqGSM49AgEGCCqBHM9VAYItBHkwdwIBAQQgtT9ubgol9YVXFYLf8rdP3+Q9QSBHD2YPaBuyZB5BsjCgCgYIKoEcz1UBgi2hRANCAAQO9X3fkY4gS+6Ng2zLYz1E4kYdiYICERNQ3QXAu5HZAzsxhHOmo1cbRd3FcOvvxR5+mQn0pK3QfOPVvYrPVz1q
+      #公钥
+      public-key: MFkwEwYHKoZIzj0CAQYIKoEcz1UBgi0DQgAEDvV935GOIEvujYNsy2M9ROJGHYmCAhETUN0FwLuR2QM7MYRzpqNXG0XdxXDr78UefpkJ9KSt0Hzj1b2Kz1c9ag==
+    
+    #摘要
+    digester:
+      #默认加密方式
+      algorithm: SM3
+      #默认密钥
+      key: Dezhentech.com?q=1234
+      #盐值
+      salt: Dezhentech.com?q=1234
+      #加盐位置，即将盐值字符串放置在数据的index数，默认0
+      saltPosition: 0
+      #摘要次数，当此值小于等于1,默认为1。
+      digestCount: 1
+      
+    #校验
+    validation:
+      #密码（所有规则依次校验）
+      password:
+        #最小长度
+        length-min: 8
+        #最大长度
+        length-max: 18
+        #包含数字
+        contains-number: false
+        #包含特殊字符
+        contains-special: false
+        #包含字母
+        contains-english: false
+        #包含大写字母
+        contains-uppercase: false
+        #包含小写字母
+        contains-lowercase: false
+        #包含汉字
+        contains-chinese: false
+        #至少包含的种类数（数字、小写字母、大写字母、特殊符号、汉字）
+        type-num: 3
+test:
+  contact:
+    phoneNumbers:
+      - '123'
+      - 'aab'
+      - 'bba'
+spring:
+  profiles:
+    active: dev
+    include:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8

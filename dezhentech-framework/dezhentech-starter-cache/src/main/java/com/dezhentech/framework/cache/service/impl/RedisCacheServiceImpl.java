@@ -1,8 +1,6 @@
 package com.dezhentech.framework.cache.service.impl;
 
 import com.dezhentech.framework.cache.service.CacheService;
-import com.dezhentech.framework.redis.dao.RedisRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.ListOperations;
@@ -22,97 +20,94 @@ import java.util.concurrent.TimeUnit;
  **/
 @ConditionalOnProperty(prefix = "dezhen.cache", name = "type", havingValue = "redis")
 public class RedisCacheServiceImpl implements CacheService {
-    @Autowired
-    private RedisRepository redisRepository;
-
     @Override
     public void setExpire(byte[] key, byte[] value, long time) {
-        redisRepository.setExpire(key, value, time);
+
     }
 
     @Override
     public void setExpire(String key, Object value, long time, TimeUnit timeUnit) {
-        redisRepository.setExpire(key, value, time, timeUnit);
+
     }
 
     @Override
     public long getExpire(String key, TimeUnit timeUnit) {
-        return redisRepository.getExpire(key, timeUnit);
+        return 0;
     }
 
     @Override
     public void setExpire(String key, Object value, long time) {
-        redisRepository.setExpire(key, value, time);
+
     }
 
     @Override
     public void setExpire(String key, Object value, long time, TimeUnit timeUnit, RedisSerializer<Object> valueSerializer) {
-        redisRepository.setExpire(key, value, time, timeUnit, valueSerializer);
+
     }
 
     @Override
     public void setExpire(String[] keys, Object[] values, long time) {
-        redisRepository.setExpire(keys, values, time);
+
     }
 
     @Override
     public void set(String[] keys, Object[] values) {
-        redisRepository.set(keys, values);
+
     }
 
     @Override
     public void set(String key, Object value) {
-        redisRepository.set(key, value);
+
     }
 
     @Override
     public Set<String> keys(String keyPatten) {
-        return redisRepository.keys(keyPatten);
+        return null;
     }
 
     @Override
     public byte[] get(byte[] key) {
-        return redisRepository.get(key);
+        return new byte[0];
     }
 
     @Override
     public Object get(String key) {
-        return redisRepository.get(key);
+        return null;
     }
 
     @Override
     public Object get(String key, RedisSerializer<Object> valueSerializer) {
-        return redisRepository.get(key, valueSerializer);
+        return null;
     }
 
     @Override
     public HashOperations<String, String, Object> opsForHash() {
-        return redisRepository.opsForHash();
+        return null;
     }
 
     @Override
     public void putHashValue(String key, String hashKey, Object hashValue) {
-        redisRepository.putHashValue(key, hashKey, hashValue);
+
     }
 
     @Override
     public Object getHashValues(String key, String hashKey) {
-        return redisRepository.getHashValues(key, hashKey);
+        return null;
     }
 
     @Override
     public void delHashValues(String key, Object... hashKeys) {
-        redisRepository.delHashValues(key, hashKeys);
+
     }
 
     @Override
     public Map<String, Object> getHashValue(String key) {
-        return redisRepository.getHashValue(key);
+        return null;
     }
 
     @Override
     public void putHashValues(String key, Map<String, Object> map) {
-        redisRepository.putHashValues(key, map);
+
     }
 
     @Override

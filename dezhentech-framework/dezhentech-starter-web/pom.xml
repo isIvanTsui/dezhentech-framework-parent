@@ -12,18 +12,120 @@
     <artifactId>dezhentech-starter-web</artifactId>
 
     <dependencies>
+
+        <!--必须：公用工具-->
         <dependency>
             <groupId>com.dezhentech</groupId>
-            <artifactId>dezhentech-common</artifactId>
+            <artifactId>dezhentech-common-core</artifactId>
         </dependency>
+
+        <!--必须：基础Web-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--引入validation依赖-->
+        <!--必须：引入validation依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <!--必须：测试-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+        <!--可选：需要持久层MyBatisPlus框架时引入它-->
+        <dependency>
+            <groupId>com.dezhentech</groupId>
+            <artifactId>dezhentech-starter-mybatisplus</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- 可选：nacos 服务注册发现（客户端）依赖 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--可选：动态配置文件-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--可选：需要开放OpenFeign接口时引入它们-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-loadbalancer</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--可选：接口文档的依赖 -->
+        <dependency>
+            <groupId>com.dezhentech</groupId>
+            <artifactId>dezhentech-starter-swagger</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--可选：流控-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--可选：链路追踪-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--可选：分布式事务-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+            <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <artifactId>druid</artifactId>
+                    <groupId>com.alibaba</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--可选：作为admin的客户端-->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <!--健康检测包，为SpringCloudAdmin提供检测信息-->
+        <!--开放所有接口，收集所有信息，提供给rdc-admin监控-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <!--仅供starter-web使用即可，其他地方无需再次引入-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

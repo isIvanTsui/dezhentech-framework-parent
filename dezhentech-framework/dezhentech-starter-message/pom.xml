@@ -11,10 +11,4 @@
 
     <artifactId>dezhentech-starter-message</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.dezhentech</groupId>
-            <artifactId>dezhentech-common</artifactId>
-        </dependency>
-    </dependencies>
 </project>

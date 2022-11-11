@@ -49,7 +49,7 @@
 
         <dependency>
             <groupId>com.dezhentech</groupId>
-            <artifactId>dezhentech-common</artifactId>
+            <artifactId>dezhentech-common-core</artifactId>
         </dependency>
     </dependencies>
 

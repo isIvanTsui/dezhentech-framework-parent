@@ -21,29 +21,30 @@ public class SwaggerProperties {
     /**
      * 标题
      */
-    private String title;
+    private String title = "接口文档";
 
     /**
      * 版本
      */
-    private String version;
+    private String version = "1.0.0";
 
     /**
      * 描述
      */
-    private String description;
+    private String description = "这是项目的接口文档";
 
-    //联系人信息
     /**
      * 名字
      */
-    private String name;
+    private String name = "德臻成都健康科技有限公司";
+
     /**
      * url
      */
-    private String url;
+    private String url = "https://www.dezhentech.com/";
+
     /**
      * 电子邮件
      */
-    private String email;
+    private String email = "service@dezhentech.com";
 }

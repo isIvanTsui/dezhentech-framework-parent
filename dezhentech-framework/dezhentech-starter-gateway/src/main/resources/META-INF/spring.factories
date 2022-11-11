@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.dezhentech.gateway.config.SwaggerResourceConfig,\
+com.dezhentech.gateway.config.properties.IgnoreWhiteProperties,\
+com.dezhentech.gateway.filter.AuthFilter,\
+com.dezhentech.gateway.handler.SwaggerHandler,\
+com.dezhentech.gateway.handler.SwaggerHeaderFilter

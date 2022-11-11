@@ -19,13 +19,15 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!--核心依赖-->
-        <spring-boot.version>2.4.2</spring-boot.version>
-        <spring-cloud.version>2021.0.2</spring-cloud.version>
-        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
-
-        <seata.version>1.4.2</seata.version>
+        <spring.boot.version>2.6.11</spring.boot.version>
+        <spring.cloud.version>2021.0.4</spring.cloud.version>
+        <spring.cloud.alibaba.version>2021.0.4.0</spring.cloud.alibaba.version>
+        <!--组件依赖-->
+        <spring.boot.admin.version>2.6.9</spring.boot.admin.version>
+        <zipkin.version>2.2.8.RELEASE</zipkin.version>
         <nacos.version>2.0.4</nacos.version>
-
+        <seata.version>1.5.2</seata.version>
+        <!--其他依赖-->
         <redisson.version>3.17.1</redisson.version>
         <druid.version>1.2.9</druid.version>
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
@@ -35,7 +37,6 @@
         <hutool.version>5.8.0</hutool.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <easypoi.version>4.4.0</easypoi.version>
-        <spring-boot-admin.version>2.6.7</spring-boot-admin.version>
         <guava.version>30.1.1-jre</guava.version>
         <ehcache.version>2.10.2</ehcache.version>
         <jetcache.version>2.7.0</jetcache.version>
@@ -43,6 +44,14 @@
         <es.version>7.8.0</es.version>
         <logstash.version>7.0.1</logstash.version>
         <knife4j.version>3.0.3</knife4j.version>
+        <fastjson.version>2.0.16</fastjson.version>
+        <transmittable.thread.version>2.13.2</transmittable.thread.version>
+        <jjwt.version>0.9.1</jjwt.version>
+        <jackson.version>2.13.3</jackson.version>
+        <xpathmap.version>1.2.4</xpathmap.version>
+        <kryo.version>2.24.0</kryo.version>
+        <bouncycastle.version>1.69</bouncycastle.version>
+
     </properties>
 
     <dependencyManagement>
@@ -52,7 +61,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>${spring.boot.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -60,7 +69,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud.version}</version>
+                <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -68,16 +77,31 @@
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-                <version>${spring-cloud-alibaba.version}</version>
+                <version>${spring.cloud.alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <!--Alibaba Nacos 配置-->
-<!--            <dependency>-->
-<!--                <groupId>com.alibaba.nacos</groupId>-->
-<!--                <artifactId>nacos-client</artifactId>-->
-<!--                <version>${nacos.version}</version>-->
-<!--            </dependency>-->
+
+            <!--组件依赖-->
+            <!--SpringCloudAdmin-->
+            <!--服务端依赖-->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-server</artifactId>
+                <version>${spring.boot.admin.version}</version>
+            </dependency>
+            <!--客户端依赖-->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring.boot.admin.version}</version>
+            </dependency>
+            <!--zipkin链路追踪-->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-zipkin</artifactId>
+                <version>${zipkin.version}</version>
+            </dependency>
             <!--分布式事务seata-->
             <dependency>
                 <groupId>io.seata</groupId>
@@ -92,7 +116,6 @@
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.version}</version>
             </dependency>
-
             <!--MyBatisPlus-->
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -125,9 +148,16 @@
             </dependency>
 
             <!--knife4j接口文档-->
+            <!--gateway引用此依赖-->
             <dependency>
                 <groupId>com.github.xiaoymin</groupId>
                 <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
+            </dependency>
+            <!--普通服务引用此依赖-->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-micro-spring-boot-starter</artifactId>
                 <version>${knife4j.version}</version>
             </dependency>
 
@@ -171,6 +201,12 @@
                 <version>${hutool.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>transmittable-thread-local</artifactId>
+                <version>${transmittable.thread.version}</version>
+            </dependency>
+
             <!--EhCache-->
             <dependency>
                 <groupId>net.sf.ehcache</groupId>
@@ -185,12 +221,74 @@
                 <version>${jetcache.version}</version>
             </dependency>
 
+            <!-- JSON 解析器和生成器 -->
+            <dependency>
+                <groupId>com.alibaba.fastjson2</groupId>
+                <artifactId>fastjson2</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.iceolive</groupId>
+                <artifactId>xpathmapper</artifactId>
+                <version>${xpathmap.version}</version>
+            </dependency>
+
+            <!-- 序列化 -->
+            <dependency>
+                <groupId>com.esotericsoftware.kryo</groupId>
+                <artifactId>kryo</artifactId>
+                <version>${kryo.version}</version>
+            </dependency>
+
+            <!-- 支持国密加密算法 -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15to18</artifactId>
+                <version>${bouncycastle.version}</version>
+            </dependency>
 
             <!--基础框架里的starter项目依赖-->
             <!--Web项目-->
             <dependency>
                 <groupId>com.dezhentech</groupId>
                 <artifactId>dezhentech-starter-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--gateway-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-starter-gateway</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--auth认证中心-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-starter-auth</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--用户管理中心-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-starter-system</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--admin健康管理中心-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-starter-admin</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!--Redis项目-->
@@ -245,10 +343,31 @@
             <!--common项目-->
             <dependency>
                 <groupId>com.dezhentech</groupId>
-                <artifactId>dezhentech-common</artifactId>
+                <artifactId>dezhentech-common-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-common-security</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!--api项目-->
+            <dependency>
+                <groupId>com.dezhentech</groupId>
+                <artifactId>dezhentech-api-system</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>http://192.168.1.211:8081/repository/dezhentech-maven-release-hosted/</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>http://192.168.1.211:8081/repository/dezhentech-maven-snapshot-hosted/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>

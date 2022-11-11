@@ -1,0 +1,5 @@
+test:
+  contact:
+    phoneNumbers:
+      - '%$#'
+      - ${dezhentech.utils.charset}
